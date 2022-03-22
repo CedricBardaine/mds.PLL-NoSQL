@@ -1,3 +1,6 @@
 # mds.PLL-NoSQL
 
-Test push : raphael
+Choix des technologies :
+- Nuxt JS pour la partie client
+- MongoDB pour la ba BDD
+- 
