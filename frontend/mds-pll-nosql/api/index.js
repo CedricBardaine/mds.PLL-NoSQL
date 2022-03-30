@@ -52,5 +52,15 @@ export default function (req, res, next) {
         return;
     }
 
+    if (req.url === "/all-messages") {
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({
+            name: "Mr.",
+            content: "Faux message.",
+            color: 'green'
+        }));
+        return;
+    }
+
     next()
 }

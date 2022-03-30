@@ -3,10 +3,18 @@ export default (context, inject) => {
     inject('api', api);
     // For Nuxt <= 2.12, also add 👇
     context.$api = api;
-  }
+}
 
 const api = {
     getDate() {
         return fetch('/api/date');
+    },
+    /**
+     * 
+     * @param {string} route like /path/couldbeanumber 
+     * @returns 
+     */
+    getRoute(route) {
+        return fetch('/api' + route);
     }
 }
