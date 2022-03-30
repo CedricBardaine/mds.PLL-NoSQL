@@ -2,8 +2,11 @@
   <div>
     <div>That's where all the messages are shown.</div>
 
-    <div>
-      {{ messages }}
+    <hr />
+
+    <div v-for="(aMessage, index) in messages" :key="index">
+      {{ aMessage.content }}
+      <br />
     </div>
   </div>
 </template>
@@ -19,15 +22,15 @@ export default {
   },
 
   mounted() {
-    this.messages = "hey";
+    this.messages = [{ content: "hey" }];
     this.getAllMessages();
   },
   methods: {
     async getAllMessages() {
       const result = await this.$api.getRoute("/all-messages");
-      //   this.putGreeting((await result.json()).date);
 
-      console.log(await result.json());
+      this.messages = await result.json();
+      console.log(this.messages);
     },
   },
 };
