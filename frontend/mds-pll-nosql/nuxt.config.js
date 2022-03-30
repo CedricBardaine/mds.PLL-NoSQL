@@ -57,6 +57,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '~/modules/mongodb-setup.js'
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

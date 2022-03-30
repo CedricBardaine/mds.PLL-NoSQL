@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div>That's where all the messages are shown.</div>
-
-    <hr />
-
     <div v-for="(aMessage, index) in messages" :key="index">
-      {{ aMessage.content }}
+      <div :class="'text-' + aMessage.color + '-500'">
+        {{ aMessage.name }} : <br />
+        {{ aMessage.content }}
+      </div>
+
       <br />
     </div>
   </div>
@@ -30,7 +30,6 @@ export default {
       const result = await this.$api.getRoute("/all-messages");
 
       this.messages = await result.json();
-      console.log(this.messages);
     },
   },
 };

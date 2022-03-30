@@ -1,69 +1,38 @@
-// import mongo from "./mongo.js";
+import mongo from "./mongo.js";
 
-// export default (req, res, next) => {
+/**
+ * 
+ * @returns all the messages docs. 
+ */
+async function getAllMessages() {
+    return await mongo.db('test')
+        .collection('messages')
+        .find()
+        .toArray();
+}
 
-//     console.log("in truc");
-//     if (req.url == "/message-all") {
+export default async function (req, res, next) {
 
-//         console.log("in message route ");
-
-//         // mongo.connect().then()
-
-//         res.setHeader('Conten-Type', "application/json");
-//         // res.end(
-//         //     JSON.stringify({
-//         //         name: 'Mr.',
-//         //         content: 'Faux message.',
-//         //         color: 'green'
-//         //     })
-//         // );
-
-
-//         res.end({
-//             name: 'Mr.',
-//             content: 'Faux message.',
-//             color: 'green'
-//         });
-
-//         // res.end({
-//         //     name: 'Mr.',
-//         //     content: 'Faux message.',
-//         //     color: 'green'
-//         // });
-//         return;
-//     }
-
-
-//     if (req.url === "/date") {
-//         res.setHeader('Content-Type', 'application/json');
-//         res.end(JSON.stringify({ date: new Date() }));
-//         return;
-//     }
-
-
-//     next();
-// }
-
-
-export default function (req, res, next) {
     if (req.url === "/date") {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({ date: new Date() }));
+
         return;
     }
 
+
     if (req.url === "/all-messages") {
+
+        let allMsgs = await getAllMessages();
+
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(
-            [
-                {
-                    name: "Mr.",
-                    content: "Faux message.",
-                    color: 'green'
-                }
-            ]));
+            allMsgs
+        ));
+
         return;
     }
+
 
     next()
 }
