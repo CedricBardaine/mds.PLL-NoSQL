@@ -2,6 +2,12 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
+  /*
+  ** Nuxt rendering mode
+  ** See https://nuxtjs.org/api/configuration-mode
+  */
+  mode: 'universal',
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'mds-pll-nosql',
@@ -19,13 +25,26 @@ export default {
     ]
   },
 
+
+  serverMiddleware: [
+    { path: '/api', handler: '~/api/index.js' },
+  ],
+
+
+  // serverMiddleware: [
+  //   { path: '/api', handler: '~/api/index.js' },
+  // ],
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+
   plugins: [
+    '~/plugins/api-client.js',
   ],
+
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -42,5 +61,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // extend(config, ctx) {
+    //   if (ctx.isDev) {
+    //     config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+    //   }
+    // }
   }
 }

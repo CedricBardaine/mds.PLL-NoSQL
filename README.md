@@ -22,6 +22,12 @@ ___
 - [ ] Créer l'interface selon la maquette
   - [ ] Utilisation de la base depuis l'interface
 
+___ 
+
+- [ ] Réaliser un benchmark entre NoSQL et SQL 
+  - [ ] Lectures
+  - [ ] Ecritures
+  - [ ] Recherche
 
 ## MongoDB 
 ### Setup
