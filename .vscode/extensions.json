@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "wix.vscode-import-cost",
+        "octref.vetur",
+        "maantje.vue-discovery",
+        "christian-kohler.path-intellisense"
+    ]
+}
