@@ -16,5 +16,19 @@ const api = {
      */
     getRoute(route) {
         return fetch('/api' + route);
+    },
+
+    postRoute(route, data) {
+        console.log("before post fetch");
+
+        return fetch('/api' + route, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+            data: JSON.stringify(data)
+        })
     }
 }

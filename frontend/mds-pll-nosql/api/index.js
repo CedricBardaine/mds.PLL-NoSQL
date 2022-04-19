@@ -11,6 +11,18 @@ async function getAllMessages() {
         .toArray();
 }
 
+async function saveMessage(document) {
+    // return await mongo.db('test')
+    //     .collection('messages')
+    //     .find()
+    //     .toArray();
+
+    mongo.db('test').collection('messages').insertOne(document)
+
+    return;
+
+}
+
 export default async function (req, res, next) {
 
     if (req.url === "/date") {
@@ -31,6 +43,35 @@ export default async function (req, res, next) {
         ));
 
         return;
+    }
+
+    if (req.url === "/save-message") {
+
+        // TODO: retrieve message from body :( 
+        // console.log(req.body);
+
+
+
+        console.log()
+        console.log()
+        console.log()
+        console.log()
+        // console.log(Object.keys(req));
+        console.log(req);
+        console.log()
+        console.log()
+        console.log()
+        console.log()
+        // console.log(Object.keys(res));
+        console.log(res);
+        console.log()
+        console.log()
+        console.log()
+        console.log()
+        console.log(req.body);
+        console.log(res.text);
+        console.log(res.json);
+        console.log(req.dataa);
     }
 
 

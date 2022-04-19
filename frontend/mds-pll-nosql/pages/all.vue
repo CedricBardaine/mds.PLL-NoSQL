@@ -151,13 +151,21 @@ export default {
       this.messages = await result.json();
     },
 
-    addMsg() {
-      // TODO: save in DB.
+    async addMsg() {
       this.messages.push({
         name: this.currentName,
         content: this.currentContent,
         color: this.currentColor,
       });
+
+      // TODO: save in DB.
+      const result = await this.$api.postRoute("/save-message", {
+        name: this.currentName,
+        content: this.currentContent,
+        color: this.currentColor,
+      });
+      console.table(result);
+      // let resp = await result.json();
 
       this.currentName = "";
       this.currentContent = "";
