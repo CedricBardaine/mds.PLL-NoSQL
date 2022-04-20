@@ -28,6 +28,9 @@ Results :
 
 Moyenne : `10.668`s 
 
+Note : 
+à vide la boucle de 10000 itérations prend `0.1`s
+
 ### Tests d'insertion plus il y a de données
 
 Results:
